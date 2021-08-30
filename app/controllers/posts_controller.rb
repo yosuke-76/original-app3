@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:derete, :edit, :update, :show]
+  before_action :set_post, only: [:edit, :update, :show]
   def index
     @posts = Post.all
   end
@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    post = Post.find(params[:id])
     post.destroy
     redirect_to root_path
   end
@@ -39,7 +40,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name, :text).merge(user_id: current_user.id)
+    params.require(:post).permit(:name, :text, :image).merge(user_id: current_user.id)
   end
 
   def set_post

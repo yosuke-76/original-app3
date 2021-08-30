@@ -1,5 +1,6 @@
 <div class="contents row">
   <% @posts.each do |post| %>
+    <%= image_tag post.image, class: 'post-image' %>
     <div class="more">
       <ul class="more_list">
         <li>

@@ -1,7 +1,8 @@
 <div class="contents row">
   <div class="container">
-    <h3>投稿する</h3>
+    <h3>編集する</h3>
     <%= form_with(model: @post, local: true) do |f| %>
+      <%= f.file_field :image, id:"post-image" %>
       <%= f.text_field :name, placeholder: "name" %>
       <%= f.text_area :text, placeholder: "text", rows: "10" %>
       <%= f.submit "SEND" %>
