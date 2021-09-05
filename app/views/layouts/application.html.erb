@@ -11,13 +11,13 @@
 
   <body>
     <header class="header">
-      <div class="header__bar row">
+      <div class="header_bar">
         <h1 class="grid-6"><a href="/">original-app3</a></h1>
         <% if user_signed_in? %>
-          <div class="user_nav grid-6">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <div class="user_nav">
+            <%= link_to current_user.nickname, user_path(current_user.id), class: "post" %>
             <%= link_to "投稿する", new_post_path, class: "post" %>
-            <%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post" %>
           </div>
         <% else %>
           <div class="grid-6">

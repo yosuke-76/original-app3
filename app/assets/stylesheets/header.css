@@ -1,0 +1,15 @@
+.header_bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user_nav {
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post {
+  margin: 5%;
+}
