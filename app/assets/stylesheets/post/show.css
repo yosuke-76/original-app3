@@ -1,0 +1,48 @@
+.content_show {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+}
+
+.post_image {
+  display: flex;
+  justify-content: center;
+}
+
+.more {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.more_list {
+  display: flex;
+  list-style: none;
+}
+
+.more_action {
+  padding: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.text_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment_area {
+  display: flex;
+  flex-direction: column;
+}
