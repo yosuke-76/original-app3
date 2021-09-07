@@ -1,28 +1,37 @@
-<div class="contents row">
+<div class="contents_show">
+  <h1>投稿詳細</h1>
+  <div class="post_image">
+    <%= image_tag @post.image, class: 'post-image' %>
+  </div>
   <div class="more">
     <ul class="more_list">
       <li>
-        <%= link_to '編集', edit_post_path(@post.id), method: :get %>
+        <%= link_to '編集', edit_post_path(@post.id), method: :get, class: "more_action" %>
       </li>
       <li>
-        <%= link_to '削除', post_path(@post.id), method: :delete %>
+        <%= link_to '削除', post_path(@post.id), method: :delete, class: "more_action" %>
       </li>
     </ul>
   </div>
-  <p><%= @post.text %></p>
-  <span class="name"><%= @post.name %>
-  </span>
-  <div class="container">
-    <% if user_signed_in? %>
-      <%= form_with(model: [@post, @comment], local: true) do |f| %>
-        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= f.submit "SEND" %>
-      <% end %>
-    <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-    <% end %>
+  <div class="text_list">
+    <div class="post_text">店舗名＿<%= @post.name %></div>
+    <div class="post_text">説明＿<%= @post.text %></div>
   </div>
-  <div class="comments">
+</div>
+<div class="comment">
+  <h2>コメント</h2>
+  <div class="comment_form">
+    <div class="container">
+      <% if user_signed_in? %>
+        <%= form_with(model: [@post, @comment], class: "comment_area", local: true) do |f| %>
+          <%= f.text_area :text, placeholder: "コメントする", rows: "2", class: "comments" %>
+          <%= f.submit "SEND", class: "comment_send" %>
+        <% end %>
+      <% else %>
+        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+      <% end %>
+    </div>
+    <div class="comments">
       <h4>＜コメント一覧＞</h4>
       <% @comments.each do |comment| %>
         <p>
@@ -31,4 +40,5 @@
         </p>
       <% end %>
     </div>
+  </div>
 </div>
