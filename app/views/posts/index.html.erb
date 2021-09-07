@@ -1,22 +1,13 @@
-<div class="contents row">
-  <% @posts.each do |post| %>
-    <%= image_tag post.image, class: 'post-image' %>
-    <div class="more">
-      <ul class="more_list">
-        <li>
-          <%= link_to '詳細',post_path(post.id), method: :get %>
-        </li>
-        <li>
-          <%= link_to '編集', edit_post_path(post.id), method: :get %>
-        </li>
-        <li>
-          <%= link_to '削除', post_path(post.id), method: :delete %>
-        </li>
-      </ul>
-    </div>
-    <p><%= post.text %></p>
-    <span class="name">
-      <%= post.name %>
-    </span>
-  <% end %>
+<div class="contents_row">
+  <div class="top_post">
+    <% @posts.each do |post| %>
+      <div class="post_frame">
+        <%= link_to image_tag(post.image, class: 'post-image'),post_path(post.id) %>
+        <div class="post_nav">
+          <div class="post_content">店舗名＿<%= post.text %></div>
+          <div class="post_content">説明＿<%= post.name %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

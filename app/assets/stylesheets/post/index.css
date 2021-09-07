@@ -1,0 +1,10 @@
+.contents_row {
+  display: flex;
+  justify-content: center;
+}
+.top_post {
+}
+.post_frame {
+  border: 1px solid black;
+  margin-bottom: 50px;
+}
